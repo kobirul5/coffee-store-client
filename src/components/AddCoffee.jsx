@@ -1,13 +1,50 @@
-import { NavLink } from "react-router-dom";
+
 import Navbar from "./Navbar/Navbar";
+import Swal from "sweetalert2";
 
 const AddCoffee = () => {
+
+    const handleAddCoffee = e =>{
+        e.preventDefault()
+        const form = e.target
+        const coffeeName = form.coffeeName.value
+        const coffeeChef = form.coffeeChef.value
+        const coffeeSupplier = form.coffeeSupplier.value
+        const coffeeTaste = form.coffeeTaste.value
+        const coffeeCategory = form.coffeeCategory.value
+        const coffeeDetails = form.coffeeDetails.value
+        const photo = form.photo.value
+        const newCoffee= {coffeeChef,coffeeDetails, coffeeName, coffeeSupplier, coffeeCategory, coffeeTaste, photo}
+
+        // send data to server 
+        fetch('http://localhost:5000/coffee', {
+            method:"POST",
+            headers:{
+                "content-type": "application/json"
+            },
+            body: JSON.stringify(newCoffee)
+        })
+        .then(res=>res.json())
+        .then(data=>{
+            console.log(data)
+            if(data.insertedId){
+                Swal.fire({
+                    title: 'Error!',
+                    text: 'Added Coffee Successfully',
+                    icon: 'success',
+                    confirmButtonText: 'close'
+                  })
+            }
+        })
+    }
+
+    
     return (
         <div>
             <Navbar></Navbar>
 
-            <div className="bg-neutral-100 min-h-screen flex items-center justify-center px-4">
-                <div className="w-full max-w-4xl p-6 bg-white shadow-lg rounded-lg">
+            <div className=" min-h-screen flex items-center justify-center px-4 py-10">
+                <div className="w-full max-w-4xl p-6 bg-neutral-100 shadow-lg rounded-lg">
                     <h1 className="text-3xl font-semibold text-center text-gray-700">
                         Add New Coffee
                     </h1>
@@ -17,7 +54,7 @@ const AddCoffee = () => {
                         using Lorem Ipsum is that it has a more-or-less normal distribution of
                         letters, as opposed to using Content here.
                     </p>
-                    <form className="grid grid-cols-1 sm:grid-cols-2 gap-6 mt-8">
+                    <form onSubmit={handleAddCoffee} className="grid grid-cols-1 sm:grid-cols-2 gap-6 mt-8">
                         <div className="form-control">
                             <label className="label">
                                 <span className="label-text">Name</span>
@@ -25,6 +62,7 @@ const AddCoffee = () => {
                             <input
                                 type="text"
                                 placeholder="Enter coffee name"
+                                name='coffeeName'
                                 className="input input-bordered w-full"
                             />
                         </div>
@@ -35,6 +73,7 @@ const AddCoffee = () => {
                             <input
                                 type="text"
                                 placeholder="Enter coffee chef"
+                                name="coffeeChef"
                                 className="input input-bordered w-full"
                             />
                         </div>
@@ -45,6 +84,7 @@ const AddCoffee = () => {
                             <input
                                 type="text"
                                 placeholder="Enter coffee supplier"
+                                name="coffeeSupplier"
                                 className="input input-bordered w-full"
                             />
                         </div>
@@ -55,6 +95,7 @@ const AddCoffee = () => {
                             <input
                                 type="text"
                                 placeholder="Enter coffee taste"
+                                name="coffeeTaste"
                                 className="input input-bordered w-full"
                             />
                         </div>
@@ -65,6 +106,7 @@ const AddCoffee = () => {
                             <input
                                 type="text"
                                 placeholder="Enter coffee category"
+                                name="coffeeCategory"
                                 className="input input-bordered w-full"
                             />
                         </div>
@@ -75,6 +117,7 @@ const AddCoffee = () => {
                             <input
                                 type="text"
                                 placeholder="Enter coffee details"
+                                name="coffeeDetails"
                                 className="input input-bordered w-full"
                             />
                         </div>
@@ -85,6 +128,7 @@ const AddCoffee = () => {
                             <input
                                 type="text"
                                 placeholder="Enter photo URL"
+                                name="photo"
                                 className="input input-bordered w-full"
                             />
                         </div>
