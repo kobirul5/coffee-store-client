@@ -3,7 +3,7 @@ import { FaEdit, FaEye, FaTrashAlt } from 'react-icons/fa';
 import { Link } from 'react-router-dom';
 import Swal from 'sweetalert2';
 
-const CoffeeCard = ({coffee}) => {
+const CoffeeCard = ({coffee, coffees, setCoffees}) => {
     const {_id,coffeeChef,coffeeDetails, coffeeName, coffeeSupplier, coffeeCategory, coffeeTaste, photo} = coffee
 
     const handleDelete= (id)=>{
@@ -26,12 +26,18 @@ const CoffeeCard = ({coffee}) => {
                 .then(res=>res.json())
                 .then(data=>{
                     console.log(data)
+                  if(data.deletedCount>0){
+                    const remaining = coffees.filter(cof => cof.id !== _id);
+                      setCoffees(remaining);
                     Swal.fire({
-                            title: "Deleted!",
-                            text: "Your Coffee has been deleted.",
-                            icon: "success"
-                            
-                          });
+                        title: "Deleted!",
+                        text: "Your Coffee has been deleted.",
+                        icon: "success"
+                        
+                      });
+                      
+                      
+                  }
                 })  
             }
           });

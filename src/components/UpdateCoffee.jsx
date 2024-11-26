@@ -31,10 +31,10 @@ const UpdateCoffee = () => {
             .then(res => res.json())
             .then(data => {
                 console.log(data)
-                if (data.insertedId) {
+                if (data.matchedCount) {
                     Swal.fire({
-                        title: 'Error!',
-                        text: 'Added Coffee Successfully',
+                        title: 'successful',
+                        text: 'Update Coffee Successfully',
                         icon: 'success',
                         confirmButtonText: 'close'
                     })
