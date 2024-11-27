@@ -8,7 +8,8 @@ export default {
     extend: {
       backgroundImage: {
         'navbar-img': "url('./src/assets/images/more/15.jpg')",
-        'banner-img': "url('./src/assets/images/more/3.png')"
+        'banner-img': "url('./src/assets/images/more/3.png')",
+        'footer-img': "url('./src/assets/images/more/13.jpg')"
       }
     },
   },
