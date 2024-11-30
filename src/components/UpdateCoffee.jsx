@@ -51,7 +51,7 @@ const UpdateCoffee = () => {
             <div className=" min-h-screen flex items-center justify-center px-4 py-10">
                 <div className="w-full max-w-4xl p-6 bg-neutral-100 shadow-lg rounded-lg">
                     <h1 className="text-3xl font-semibold text-center text-gray-700">
-                        Add New Coffee
+                        Update Coffee
                     </h1>
                     <p className="text-center text-gray-500 mt-2">
                         It is a long established fact that a reader will be distracted by the

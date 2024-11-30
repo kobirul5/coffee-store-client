@@ -2,7 +2,7 @@ import React from 'react';
 import { FaFacebook, FaTwitter, FaInstagram, FaLinkedin, FaPhone, FaEnvelope, FaMapMarkerAlt } from "react-icons/fa";
 const Footer = () => {
     return (
-        <div className="bg-footer-img py-12 text-[#331A15] mt-20">
+        <div className="bg-footer-img pt-12 text-[#331A15] mt-20">
             <div className="max-w-6xl mx-auto px-4 grid grid-cols-1 md:grid-cols-2 gap-8">
                 {/* Left Section */}
                 <div className="text-center md:text-left">
@@ -55,11 +55,11 @@ const Footer = () => {
                             className="textarea textarea-bordered w-full"
                             rows="4"
                         ></textarea>
-                        <button className="btn btn-primary w-full">Send Message</button>
+                        <button className="btn hover:bg-transparent text-white bg-[#331A15] hover:text-[#331A15] hover:border-[#331A15] border-[#E3B577]">Send Message</button>
                     </form>
                 </div>
             </div>
-            <footer className="text-center mt-12 text-gray-600 text-sm">
+            <footer className="text-center py-5 mt-12 bg-footer-img2 text-xl text-white">
                 Copyright © Espresso Emporium | All Rights Reserved
             </footer>
         </div>
