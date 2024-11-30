@@ -17,7 +17,7 @@ const AddCoffee = () => {
         const newCoffee= {coffeeChef,coffeeDetails, coffeeName, coffeeSupplier, coffeeCategory, coffeeTaste, photo}
 
         // send data to server 
-        fetch('http://localhost:5000/coffee', {
+        fetch('https://coffee-store-server-xi-one.vercel.app/coffee', {
             method:"POST",
             headers:{
                 "content-type": "application/json"

@@ -21,7 +21,7 @@ const UpdateCoffee = () => {
         const newCoffee = { coffeeChef, coffeeDetails, coffeeName, coffeeSupplier, coffeeCategory, coffeeTaste, photo }
 
         // send data to server 
-        fetch(`http://localhost:5000/coffee/${_id}`, {
+        fetch(`https://coffee-store-server-xi-one.vercel.app/coffee/${_id}`, {
             method: "PUT",
             headers: {
                 "content-type": "application/json"
